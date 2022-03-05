@@ -227,14 +227,14 @@
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
             android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/secondary"
             android:id="@+id/btn_watering"
             android:scaleType="center"
             android:src="@drawable/ic_drop2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:rippleColor="@color/white"
-            app:tint="@color/white" />
+            app:tint="@color/white"
+            android:backgroundTint="@color/secondary"/>
 
         <TextView
             android:id="@+id/textView8"

@@ -1,5 +1,6 @@
 package com.example.samsunghackathon2021.ui.home;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -91,11 +92,11 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
 import java.util.Random;
 
 
 public class HomeFragment extends Fragment {
-
     MqttHelper mqttHelperPrefs, mqttHelperPomp;
 
     TextView dataReceived;
@@ -120,7 +121,6 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         database_helper = new DatabaseHelper(getContext());
-
         View va = inflater.inflate(R.layout.fragment_home, container, false);
         temperature = (TextView) va.findViewById(R.id.temperature);// findViewById(R.id.temperature);
         dataReceived = (TextView) va.findViewById(R.id.dataReceived);
@@ -187,7 +187,7 @@ public class HomeFragment extends Fragment {
 
 
     private void startPrefsMqtt(String topic) {
-        mqttHelperPrefs = new MqttHelper(getActivity().getApplicationContext(), topic);
+        mqttHelperPrefs = new MqttHelper(requireActivity().getApplicationContext(), topic); //getActivity
         mqttHelperPrefs.setCallback(new MqttCallbackExtended() {
             @Override
             public void connectComplete(boolean b, String s) {
@@ -233,7 +233,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void startPompMqtt(String topic) {
-        mqttHelperPomp = new MqttHelper(getActivity().getApplicationContext(), topic);
+        mqttHelperPomp = new MqttHelper(requireActivity().getApplicationContext(), topic);
         mqttHelperPomp.setCallback(new MqttCallbackExtended() {
             @Override
             public void connectComplete(boolean b, String s) {

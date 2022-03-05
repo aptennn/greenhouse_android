@@ -175,9 +175,25 @@ import java.util.ArrayList;
 
         ConstraintLayout cl = (ConstraintLayout) getLayoutInflater().inflate(R.layout.dialog_hum, null);
         SeekBar humm = cl.findViewById(R.id.seekBar);
+        TextView proc = cl.findViewById(R.id.textView4);
+        humm.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                proc.setText(String.valueOf(progress) + "%");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Выбор");
-
 
         builder.setPositiveButton("ОК",new DialogInterface.OnClickListener(){
             @Override
