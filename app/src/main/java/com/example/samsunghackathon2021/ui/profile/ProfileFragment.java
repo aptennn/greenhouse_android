@@ -11,7 +11,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.NumberPicker;
 import android.widget.SeekBar;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -43,6 +45,7 @@ import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
  public class ProfileFragment extends Fragment {
@@ -152,6 +155,8 @@ import java.util.ArrayList;
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getContext(), "Время", Toast.LENGTH_LONG).show();
                 check = true;
+                showTimeHum(v);
+
             }
         });
 
@@ -207,6 +212,8 @@ import java.util.ArrayList;
         });
 
 
+
+
         builder.setView(cl);
         builder.show();
 
@@ -225,7 +232,7 @@ import java.util.ArrayList;
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getContext(), namee.getText() + " Имя выбрано", Toast.LENGTH_LONG).show();
                 name_plant = namee.getText() + "";
-                database_helper.addNotes(name_plant, "Полив если влажность меньше " +hum_ground + "%", "hum." + hum_ground);
+                database_helper.addNotes(name_plant, "Полив если влажность меньше " + hum_ground + "%", "hum." + hum_ground);
                 displayNotes();
 
 
@@ -235,6 +242,74 @@ import java.util.ArrayList;
         builder.show();
 
     }
+    //выбор времени в секундах
+     public void set_duration(View v){
+         ConstraintLayout cl = (ConstraintLayout) getLayoutInflater().inflate(R.layout.time_water_duration, null);
+         NumberPicker nb = cl.findViewById(R.id.number_time_picker);
+         nb.setMaxValue(60);
+         nb.setMinValue(1);
+         final int[] sel_value = {1};
+         nb.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+             @Override
+             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                sel_value[0] = newVal;
+             }
+         });
+         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+         builder.setTitle("Время полива");
+
+
+         builder.setPositiveButton("ОК",new DialogInterface.OnClickListener(){
+             @Override
+             public void onClick(DialogInterface dialog, int which) {
+                 String type__ = Integer.toString(sel_value[0]);
+                 Toast.makeText(getContext(), "Время: " + type__, Toast.LENGTH_LONG).show();
+
+
+             }
+         });
+         builder.setView(cl);
+         builder.show();
+
+     }
+// нажатие на время
+     public void showTimeHum(View v) {
+
+         ConstraintLayout cl = (ConstraintLayout) getLayoutInflater().inflate(R.layout.time_layout_mini, null);
+         CheckBox checkBox_mo = cl.findViewById(R.id.monday_check);
+         CheckBox checkBox_tu = cl.findViewById(R.id.tuesday_check);
+         CheckBox checkBox_wd = cl.findViewById(R.id.wednesday_check);
+         CheckBox checkBox_th = cl.findViewById(R.id.thursday_check);
+         CheckBox checkBox_fr = cl.findViewById(R.id.friday_check);
+         CheckBox checkBox_st = cl.findViewById(R.id.saturday_check);
+         CheckBox checkBox_sn = cl.findViewById(R.id.sunday_check);
+         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+         builder.setTitle("Время");
+
+         builder.setPositiveButton("ОК", new DialogInterface.OnClickListener() {
+             @Override
+             public void onClick(DialogInterface dialog, int which) {
+                 ArrayList<String> chose_days = new ArrayList<String>();
+                 if (checkBox_mo.isChecked()){chose_days.add("monday");}
+                 if (checkBox_tu.isChecked()){chose_days.add("tuesday");}
+                 if (checkBox_wd.isChecked()){chose_days.add("wednesday");}
+                 if (checkBox_th.isChecked()){chose_days.add("thursday");}
+                 if (checkBox_fr.isChecked()){chose_days.add("friday");}
+                 if (checkBox_st.isChecked()){chose_days.add("saturday");}
+                 if (checkBox_sn.isChecked()){chose_days.add("sunday");}
+
+                 Toast.makeText(getContext(), chose_days + " - выбранные дни", Toast.LENGTH_LONG).show();
+                if (chose_days.isEmpty()){
+                    // вызов функции если не выбран ни один день
+                     }
+                else {
+                 set_duration(v);
+                }
+             }
+         });
+         builder.setView(cl);
+         builder.show();
+     }
 
 
     @Override
