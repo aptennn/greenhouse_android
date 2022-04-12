@@ -20,4 +20,15 @@
     <string name="friday">Пятница</string>
     <string name="saturday">Суббота</string>
     <string name="sunday">Воскресенье</string>
+    <string name="language">Язык</string>
+    <string name="info">О приложении</string>
+    <string name="description">Описание</string>
+    <string name="sensors">Датчики</string>
+    <string name="humidity_earth">Влажность земли</string>
+    <string name="humidity_air">Влажность воздуха</string>
+
+
+
+
+
 </resources>

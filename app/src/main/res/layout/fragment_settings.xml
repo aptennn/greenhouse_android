@@ -5,18 +5,20 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lll">
+        android:id="@+id/lll"
+        android:layout_marginTop="30dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/nightmode"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:gravity="center"
             android:paddingStart="10dp"
-            android:paddingLeft="10dp" />
+            android:paddingLeft="10dp"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
         <Switch
             android:layout_width="70dp"
             android:layout_height="50dp"
@@ -26,26 +28,41 @@
             android:scaleY="1.3"
             android:switchMinWidth="45dp"
             android:padding="6dp"
-            tools:ignore="UseSwitchCompatOrMaterialXml" />
-    </LinearLayout>
+            tools:ignore="MissingConstraints,UseSwitchCompatOrMaterialXml"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="match_parent"
+            android:text="@string/language"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:id="@+id/button_rus"
-            android:text="Russian"
-            tools:ignore="MissingConstraints" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
+            android:src="@drawable/russia_flag"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintRight_toLeftOf="@+id/button_eng"
+            android:layout_marginEnd="10dp"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:layout_constraintRight_toRightOf="parent"
             android:id="@+id/button_eng"
-            android:text="English"
-            tools:ignore="MissingConstraints" />
+            android:src="@drawable/usa_flag"
+            tools:ignore="MissingConstraints"
+            android:layout_marginEnd="10dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

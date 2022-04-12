@@ -58,6 +58,7 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.example.samsunghackathon2021.databinding.ActivityMainBinding;
@@ -108,7 +109,7 @@ public class HomeFragment extends Fragment {
     FloatingActionButton btn_water;
     DatabaseHelper database_helper;
     ImageButton btn_settings;
-    ImageView default_image;
+    ShapeableImageView default_image;
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
     String[] useList = new String[2];
@@ -116,6 +117,7 @@ public class HomeFragment extends Fragment {
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -134,8 +136,9 @@ public class HomeFragment extends Fragment {
         ground = (ProgressBar) va.findViewById(R.id.progressGroundHum);
         air = (ProgressBar) va.findViewById(R.id.progressAirHum);
         btn_water = (FloatingActionButton) va.findViewById(R.id.btn_watering);
+        default_image = (ShapeableImageView) va.findViewById(R.id.profileImage);
+//        default_image.setClipToOutline(true);
 
-        default_image = (ImageView) va.findViewById(R.id.profileImage);
         int[] images = {R.drawable.vegetables1,R.drawable.vegetables2,R.drawable.vegetables3,R.drawable.vegetables4};
         Random rand = new Random();
         default_image.setImageResource(images[rand.nextInt(images.length)]);

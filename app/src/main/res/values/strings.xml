@@ -20,4 +20,10 @@
     <string name="friday">Friday</string>
     <string name="saturday">Saturday</string>
     <string name="sunday">Sunday</string>
+    <string name="language">Language</string>
+    <string name="info">About</string>
+    <string name="description">Description</string>
+    <string name="sensors">Sensors</string>
+    <string name="humidity_earth">Earth humidity</string>
+    <string name="humidity_air">Air humidity</string>
 </resources>
