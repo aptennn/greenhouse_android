@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Копатель offline</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Smart Greenhouse</string>
+    <string name="nav_header_subtitle">github.com/aptennn/SamsungProject</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Настройки</string>
+    <string name="information">Умная теплица для проекта по Samsung It School</string>
+    <string name="menu_home">Управление</string>
+    <string name="menu_profile">Профили</string>
+    <string name="menu_slideshow">Информация</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="nightmode">Темный режим</string>
+    <string name="monday">Понедельник</string>
+    <string name="tuesday">Вторник</string>
+    <string name="wednesday">Среда</string>
+    <string name="thursday">Четверг</string>
+    <string name="friday">Пятница</string>
+    <string name="saturday">Суббота</string>
+    <string name="sunday">Воскресенье</string>
+</resources>

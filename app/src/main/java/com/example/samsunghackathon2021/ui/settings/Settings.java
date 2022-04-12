@@ -15,14 +15,18 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.example.samsunghackathon2021.MainActivity;
+import com.example.samsunghackathon2021.MyPreference;
 import com.example.samsunghackathon2021.R;
 
 import org.jetbrains.annotations.NotNull;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import java.util.Objects;
+
 
 public class Settings extends Fragment {
+    MyPreference myPreference;
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
@@ -30,7 +34,6 @@ public class Settings extends Fragment {
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
-
 
 
         Switch switchBlinkPin13 = (Switch) view.findViewById(R.id.action_switch);
@@ -51,6 +54,30 @@ public class Settings extends Fragment {
 
 
                 }
+            }
+        });
+        // выбор языков
+        myPreference = new MyPreference(requireActivity());
+        view.findViewById(R.id.button_rus).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                myPreference.setLoginCount("ru");
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+
+            }
+        });
+
+        view.findViewById(R.id.button_eng).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                myPreference.setLoginCount("en");
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
 

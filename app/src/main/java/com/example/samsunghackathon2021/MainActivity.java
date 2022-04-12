@@ -2,6 +2,7 @@ package com.example.samsunghackathon2021;
 
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private  MyPreference myPreference;
+
 
 
 
@@ -65,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             setTheme(R.style.stock);
         }
+
+    }
+    // загрузка языка
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        myPreference = new MyPreference(newBase);
+        String lang = myPreference.getLoginCount();
+        super.attachBaseContext(MyContextWrapper.wrap(newBase, lang));
 
     }
 
