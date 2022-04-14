@@ -3,11 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/drawable-v21/baseline_house_siding_24.xml" value="0.1325" />
+        <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/drawable-v21/baseline_yard_24.xml" value="0.1325" />
+        <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1325" />
+        <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/drawable/ic_drop.xml" value="0.1325" />
+        <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/drawable/ic_drop2.xml" value="0.1325" />
         <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/drawable/round_outline.xml" value="0.154" />
+        <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/drawable/rounded_corner.xml" value="0.1325" />
         <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/layout/fragment_home.xml" value="0.259375" />
         <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/layout/fragment_settings.xml" value="0.264" />
         <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/layout/fragment_slideshow.xml" value="0.176" />
+        <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/layout/layout_login.xml" value="0.2" />
         <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/menu/activity_main_drawer.xml" value="0.259375" />
         <entry key="..\:/Users/LAPTOP/Documents/Android_projects_git/greenhouse_android/app/src/main/res/menu/main.xml" value="0.259375" />
       </map>

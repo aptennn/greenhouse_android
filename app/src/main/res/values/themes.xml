@@ -50,6 +50,11 @@
         <!-- Customize your theme here. -->
     </style>
         <!-- Светлая тема. -->
+    <style name="LoginTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
 
 
+
+
+
+    </style>
 </resources>

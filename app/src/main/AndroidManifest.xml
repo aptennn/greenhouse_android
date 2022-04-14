@@ -15,10 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SamsungHackathon2021">
         <activity android:name=".PreferencesActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.SamsungHackathon2021.NoActionBar"
+            />
         <activity
-            android:name=".MainActivity"
+            android:name=".login.Login_Activity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.SamsungHackathon2021.NoActionBar">
+            android:theme="@style/LoginTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

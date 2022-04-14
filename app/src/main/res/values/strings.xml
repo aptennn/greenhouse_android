@@ -26,4 +26,7 @@
     <string name="sensors">Sensors</string>
     <string name="humidity_earth">Earth humidity</string>
     <string name="humidity_air">Air humidity</string>
+    <string name="greenhouse_number">Greenhouse number</string>
+    <string name="greenhouse_login">Login</string>
+
 </resources>

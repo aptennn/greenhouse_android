@@ -26,8 +26,8 @@
     <string name="sensors">Датчики</string>
     <string name="humidity_earth">Влажность земли</string>
     <string name="humidity_air">Влажность воздуха</string>
-
-
+    <string name="greenhouse_number">Номер теплицы</string>
+    <string name="greenhouse_login">Войти</string>
 
 
 
