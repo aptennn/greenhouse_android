@@ -1,6 +1,9 @@
 package com.example.samsunghackathon2021.ui.home;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -148,13 +151,15 @@ public class HomeFragment extends Fragment {
         prof1.setText(useList[0]);
         prof2.setText(useList[1]);
 
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Account", MODE_PRIVATE);
+        String test = loadStateLog();
 
 
         Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                startPrefsMqtt("test/temp");
-                startPompMqtt("test/pomp");
+                startPrefsMqtt("test68" + test + "/tem423p");
+                startPompMqtt("test" + test + "/pomp");
             }
         };
         handler.sendEmptyMessage(0);
@@ -180,6 +185,11 @@ public class HomeFragment extends Fragment {
         });
 
         return va;
+    }
+    public String loadStateLog() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Account", MODE_PRIVATE);
+        return sharedPreferences.getString("GreenHouse_code", "");
+
     }
 
     @Override

@@ -28,6 +28,8 @@
     <string name="humidity_air">Влажность воздуха</string>
     <string name="greenhouse_number">Номер теплицы</string>
     <string name="greenhouse_login">Войти</string>
+    <string name="button_exit">Выйти</string>
+
 
 
 

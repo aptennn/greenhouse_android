@@ -28,5 +28,5 @@
     <string name="humidity_air">Air humidity</string>
     <string name="greenhouse_number">Greenhouse number</string>
     <string name="greenhouse_login">Login</string>
-
+    <string name="button_exit">Exit</string>
 </resources>

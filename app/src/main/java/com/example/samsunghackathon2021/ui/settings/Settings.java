@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.example.samsunghackathon2021.MainActivity;
 import com.example.samsunghackathon2021.MyPreference;
 import com.example.samsunghackathon2021.R;
+import com.example.samsunghackathon2021.login.Login_Activity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -80,6 +81,15 @@ public class Settings extends Fragment {
                 startActivity(intent);
             }
         });
+        view.findViewById(R.id.button_exit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveStateLog("");
+                Intent i = new Intent(getActivity().getApplicationContext(), Login_Activity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
 
         return view;
     }
@@ -94,6 +104,13 @@ public class Settings extends Fragment {
         return sharedPreferences.getBoolean("NightMode", true);
 
     }
+    public void saveStateLog(String auth) {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Account", MODE_PRIVATE);
+        SharedPreferences.Editor editor  = sharedPreferences.edit();
+        editor.putString("GreenHouse_code", auth);
+        editor.apply();
+    }
+
 
 }
 

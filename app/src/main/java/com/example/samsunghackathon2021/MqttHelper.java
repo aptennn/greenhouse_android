@@ -22,7 +22,7 @@ public class MqttHelper {
     final String serverUri = "tcp://m2.wqtt.ru:5631";
 
     final String clientId = "ExampleAndroidClient";
-    String subscriptionTopic; //= "user_f70f4807/test/temp";
+    String subscriptionTopic = "tesfdt"; //= "user_f70f4807/test/temp";
 
     final String username = "u_2CWPYH";
     final String password = "716Q9lLe";
@@ -100,7 +100,7 @@ public class MqttHelper {
             mqttAndroidClient.subscribe(subscriptionTopic, 0, null, new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
-                    Log.w("Mqtt","Subscribed!");
+                    Log.w("Mqtt","Subscribed!" + subscriptionTopic);
                 }
 
                 @Override

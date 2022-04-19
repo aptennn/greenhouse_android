@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,21 +22,32 @@ public class Login_Activity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        if (loadState().equals("0")){
+        if (loadState().equals("")){
             setContentView(R.layout.layout_login);
             EditText et_log = findViewById(R.id.edit_text_login);
             Button log_btn = findViewById(R.id.btn_login);
             log_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    saveState(et_log.getText().toString());
-                    Intent i = new Intent(Login_Activity.this, MainActivity.class);
-                    startActivity(i);
+                    if (et_log.getText().toString().isEmpty()){
+                        Toast.makeText(Login_Activity.this, "Empty error", Toast.LENGTH_SHORT).show();
+                    }else{
+                        saveState(et_log.getText().toString());
+                        Intent i = new Intent(Login_Activity.this, MainActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                        startActivity(i);
+                        finish();
+                    }
+
                 }
             });
         }else{
             Intent i = new Intent(Login_Activity.this, MainActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
             startActivity(i);
+            finish();
         }
 
 
@@ -49,7 +61,7 @@ public class Login_Activity extends AppCompatActivity {
     }
     public String loadState() {
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("Account", MODE_PRIVATE);
-        return sharedPreferences.getString("GreenHouse_code", "0");
+        return sharedPreferences.getString("GreenHouse_code", "");
 
     }
 }
