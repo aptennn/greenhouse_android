@@ -22,12 +22,12 @@
 
         <TextView
             android:id="@+id/temperature"
-            android:layout_width="100dp"
-            android:layout_height="70dp"
+            android:layout_width="104dp"
+            android:layout_height="68dp"
             android:layout_marginStart="128dp"
             android:layout_marginLeft="128dp"
-            android:text="+24"
             android:textSize="48dp"
+            android:text="+ 1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/temperature2" />
 

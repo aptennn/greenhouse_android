@@ -152,14 +152,14 @@ public class HomeFragment extends Fragment {
         prof2.setText(useList[1]);
 
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("Account", MODE_PRIVATE);
-        String test = loadStateLog();
+        String topicNeed = sharedPreferences.getString("GreenHouse_code", "");
 
 
         Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                startPrefsMqtt("test68" + test + "/tem423p");
-                startPompMqtt("test" + test + "/pomp");
+                startPrefsMqtt("test"+topicNeed + "/temp");
+                startPompMqtt("test"+topicNeed + "/pomp");
             }
         };
         handler.sendEmptyMessage(0);
@@ -215,22 +215,31 @@ public class HomeFragment extends Fragment {
             @Override
             public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
                 Log.w("de", mqttMessage.toString());
-                dataReceived.setText(mqttMessage.toString());
-                //Toast t = Toast.makeText(getApplicationContext(),mqttMessage.toString(),Toast.LENGTH_SHORT);
-                //t.show();
-                String[] answer = mqttMessage.toString().split(" ");
-                double d_temp = Double.valueOf(answer[0]);
-                double d_air_hum = Double.valueOf(answer[1]);
-                double d_ground_hum = Double.valueOf(answer[2]);
-                int temp = (int) Math.ceil(d_temp);
-                int air_hum = (int) Math.ceil(d_air_hum);
-                int ground_hum = (int) Math.ceil(d_ground_hum);
-                temperature.setText("+" + temp);
 
-                ground.setProgress(ground_hum);
-                percent1.setText(ground_hum + "%");
-                air.setProgress(air_hum);
-                percent2.setText(air_hum + "%");
+                    dataReceived.setText(mqttMessage.toString());
+                    //Toast t = Toast.makeText(getApplicationContext(),mqttMessage.toString(),Toast.LENGTH_SHORT);
+                    //t.show();
+                    String[] answer = mqttMessage.toString().split(" ");
+                    double d_temp = Double.valueOf(answer[0]);
+                    double d_air_hum = Double.valueOf(answer[1]);
+                    double d_ground_hum = Double.valueOf(answer[2]);
+                SharedPreferences sharedPreferences = getContext().getSharedPreferences("Account", MODE_PRIVATE);
+                String topicNeed = sharedPreferences.getString("GreenHouse_code", "");
+                String x = "test"+topicNeed+"/temp";
+
+                //temperature.setText(x + " " + topic);
+                if(topic.equals(x)) {
+                    int temp = (int) Math.ceil(d_temp);
+                    int air_hum = (int) Math.ceil(d_air_hum);
+                    int ground_hum = (int) Math.ceil(d_ground_hum);
+                    //temperature.setText("228");
+                    temperature.setText("+ " + temp);
+                    ground.setProgress(ground_hum);
+                    percent1.setText(ground_hum + "%");
+                    air.setProgress(air_hum);
+                    percent2.setText(air_hum + "%");
+               }
+
 
                 //if (ground_hum < 20) {
                 //    sendMessage("4");
