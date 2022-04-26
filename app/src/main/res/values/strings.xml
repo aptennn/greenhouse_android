@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Копатель offline</string>
+    <string name="app_name">Smart Greenhouse</string>
     <string name="title_activity_main2">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -29,4 +29,6 @@
     <string name="greenhouse_number">Greenhouse number</string>
     <string name="greenhouse_login">Login</string>
     <string name="button_exit">Exit</string>
+    <string name="click_to_show_login">Click to show greenhouse number</string>
+    <string name="feedback">Feedback</string>
 </resources>

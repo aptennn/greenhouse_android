@@ -7,6 +7,6 @@
         android:startColor="@android:color/transparent" />
     <stroke
         android:width="2dp"
-        android:color="@color/red" /> <!-- color name="grey">#5b5b5b</color> -->
+        android:color="@color/grey" /> <!-- color name="grey">#5b5b5b</color> -->
 
 </shape>

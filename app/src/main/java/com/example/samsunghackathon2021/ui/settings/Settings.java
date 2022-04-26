@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +29,7 @@ import java.util.Objects;
 
 public class Settings extends Fragment {
     MyPreference myPreference;
+    int count_taps = 0;
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
@@ -88,6 +90,23 @@ public class Settings extends Fragment {
                 Intent i = new Intent(getActivity().getApplicationContext(), Login_Activity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                getActivity().finish();
+            }
+        });
+        TextView tv_login_code = view.findViewById(R.id.tv_login_code);
+        String def_val = tv_login_code.getText().toString();
+        tv_login_code.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (count_taps % 2 == 0){
+                    tv_login_code.setText(loadStateLog());
+                    count_taps += 1;
+
+                }
+                else {
+                    tv_login_code.setText(def_val);
+                    count_taps += 1;
+                }
             }
         });
 
@@ -109,6 +128,11 @@ public class Settings extends Fragment {
         SharedPreferences.Editor editor  = sharedPreferences.edit();
         editor.putString("GreenHouse_code", auth);
         editor.apply();
+    }
+    public String loadStateLog() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Account", MODE_PRIVATE);
+        return sharedPreferences.getString("GreenHouse_code", "");
+
     }
 
 

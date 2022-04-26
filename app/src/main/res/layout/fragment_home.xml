@@ -112,17 +112,17 @@
             app:layout_constraintStart_toStartOf="@+id/progressGroundHum"
             app:layout_constraintTop_toBottomOf="@+id/percent5" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView"-->
+<!--            android:layout_width="38dp"-->
+<!--            android:layout_height="38dp"-->
 
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="436dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/temperature4"
-            app:srcCompat="@drawable/ic_drop" />
+<!--            android:layout_marginStart="24dp"-->
+<!--            android:layout_marginLeft="24dp"-->
+<!--            android:layout_marginTop="436dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/temperature4"-->
+<!--            app:srcCompat="@drawable/ic_drop" />-->
 
         <TextView
             android:id="@+id/percent1"
